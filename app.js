@@ -5,6 +5,7 @@ import path from "path";
 import morgan from "morgan";
 import { catchError, HandleERROR } from "vanta-api";
 import exportValidation from "./Middlewares/ExportValidation.js";
+import uploadRouter from "./Routes/Upload.js";
 
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -15,6 +16,9 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use("/uploads", express.static("Public/Uploads"));
 app.use(exportValidation);
+
+app.use("/api/upload", uploadRouter);
+
 
 app.use((req, res, next) => {
   return next(new HandleERROR("Not Found", 404));

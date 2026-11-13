@@ -4,6 +4,7 @@ const UserSchema = new mongoose.Schema(
     fullname: {
       type: String,
       default: "",
+      trim: true,
     },
     phoneNumber: {
       type: String,

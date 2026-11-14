@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 
 const SellerProfileSchema = new mongoose.Schema(
@@ -6,7 +5,6 @@ const SellerProfileSchema = new mongoose.Schema(
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-   
     },
 
     storeName: {
@@ -52,22 +50,8 @@ const SellerProfileSchema = new mongoose.Schema(
     },
 
     bankAccount: {
-      cardNumber: {
-        type: String,
-        default: "",
-      },
-      accountNumber: {
-        type: String,
-        default: "",
-      },
-      shebaNumber: {
-        type: String,
-        default: "",
-      },
-      accountHolder: {
-        type: String,
-        default: "",
-      },
+      type: Object,
+      default: {},
     },
 
     status: {
